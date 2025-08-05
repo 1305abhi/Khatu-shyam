@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्री खाटू श्याम जी: एक दिव्य यात्रा</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: #FFF8E1;
+        }
+        .text-saffron { color: #FF9933; }
+        .bg-saffron { background-color: #FF9933; }
+        .border-saffron { border-color: #FF9933; }
+        .text-deep-blue { color: #003366; }
+        .bg-deep-blue { background-color: #003366; }
+        .text-earthy-brown { color: #6D4C41; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .tab-active {
+            border-bottom: 2px solid #FF9933;
+            color: #FF9933;
+            font-weight: 700;
+        }
+        .tab-inactive {
+            color: #6D4C41;
+        }
+    </style>
+</head>
+<body class="text-earthy-brown">
+
+    <header class="bg-deep-blue text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-saffron">श्याम शरणम्</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#katha" class="hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-sm font-medium">कथा</a>
+                        <a href="#stories" class="hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-sm font-medium">कथाएँ</a>
+                        <a href="#darshan" class="hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-sm font-medium">दर्शन</a>
+                        <a href="#yatra" class="hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-sm font-medium">यात्रा योजना</a>
+                        <a href="#info" class="hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-sm font-medium">महत्वपूर्ण जानकारी</a>
+                        <a href="#places" class="hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-sm font-medium">आस-पास के स्थल</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-saffron hover:text-white hover:bg-saffron focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#katha" class="block hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-base font-medium">कथा</a>
+                <a href="#stories" class="block hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-base font-medium">कथाएँ</a>
+                <a href="#darshan" class="block hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-base font-medium">दर्शन</a>
+                <a href="#yatra" class="block hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-base font-medium">यात्रा योजना</a>
+                <a href="#info" class="block hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-base font-medium">महत्वपूर्ण जानकारी</a>
+                <a href="#places" class="block hover:bg-saffron hover:text-deep-blue px-3 py-2 rounded-md text-base font-medium">आस-पास के स्थल</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <section class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold text-deep-blue mb-4">श्री खाटू श्याम जी</h1>
+            <p class="text-2xl md:text-3xl text-saffron font-semibold">हारे का सहारा, श्याम हमारा</p>
+        </section>
+
+        <section id="katha" class="py-12 bg-white rounded-xl shadow-lg mb-12">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-deep-blue mb-2">अद्वितीय बलिदान की कथा</h2>
+                <p class="text-center text-lg mb-8">यह खंड आपको महाभारत काल के वीर योद्धा बर्बरीक की कहानी से परिचित कराता है, जिन्होंने धर्म की रक्षा के लिए अपना शीश दान कर दिया और भगवान श्री कृष्ण से कलियुग में 'श्याम' नाम से पूजे जाने का वरदान प्राप्त किया।</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-amber-50 p-6 rounded-lg text-center shadow-md hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-3">👶</div>
+                        <h3 class="text-xl font-bold text-deep-blue mb-2">जन्म और शिक्षा</h3>
+                        <p>महाबली भीम के पौत्र, घटोत्कच और मौरवी के पुत्र बर्बरीक बचपन से ही एक महान योद्धा थे। उन्होंने अपनी माता और श्री कृष्ण से युद्ध कला सीखी।</p>
+                    </div>
+                    <div class="bg-amber-50 p-6 rounded-lg text-center shadow-md hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-3">🏹</div>
+                        <h3 class="text-xl font-bold text-deep-blue mb-2">तीन दिव्य बाण</h3>
+                        <p>कठोर तपस्या से प्रसन्न होकर, देवी-देवताओं ने उन्हें तीन अमोघ बाण प्रदान किए, जो अपने लक्ष्य को भेदकर वापस लौट आते थे और अजेय थे।</p>
+                    </div>
+                    <div class="bg-amber-50 p-6 rounded-lg text-center shadow-md hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-3">🙇‍♂️</div>
+                        <h3 class="text-xl font-bold text-deep-blue mb-2">शीश का दान</h3>
+                        <p>महाभारत युद्ध से पहले, श्री कृष्ण ने ब्राह्मण वेश में बर्बरीक से उनका शीश दान में मांग लिया, जिसे उन्होंने सहर्ष प्रदान कर दिया और "शीश के दानी" कहलाए।</p>
+                    </div>
+                    <div class="bg-amber-50 p-6 rounded-lg text-center shadow-md hover:shadow-xl transition-shadow">
+                        <div class="text-4xl mb-3">🌟</div>
+                        <h3 class="text-xl font-bold text-deep-blue mb-2">श्याम नाम का वरदान</h3>
+                        <p>उनके बलिदान से प्रसन्न होकर, श्री कृष्ण ने उन्हें वरदान दिया कि कलियुग में वे 'श्याम' नाम से पूजे जाएंगे और हारे हुए का सहारा बनेंगे।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stories" class="py-12 bg-white rounded-xl shadow-lg mb-12">
+            <div class="max-w-5xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-deep-blue mb-2">बाबा श्याम की लोकप्रिय कथाएँ</h2>
+                <p class="text-center text-lg mb-8">यहाँ आप बाबा श्याम के जीवन से जुड़ी कुछ महत्वपूर्ण और प्रेरणादायक कथाओं को पढ़ सकते हैं, जिनसे उनकी महिमा और त्याग की भावना का पता चलता है।</p>
+                <div id="story-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="story-card bg-amber-50 p-6 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow" data-story-id="birth">
+                        <h3 class="font-bold text-xl text-deep-blue">जन्म और शक्ति</h3>
+                        <p class="mt-1 text-sm text-gray-600">बर्बरीक के जन्म और बचपन में उनकी असाधारण शक्तियों की कहानी।</p>
+                    </div>
+                    <div class="story-card bg-amber-50 p-6 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow" data-story-id="threeArrows">
+                        <h3 class="font-bold text-xl text-deep-blue">तीन अमोघ बाण</h3>
+                        <p class="mt-1 text-sm text-gray-600">वो बाण जो एक ही बार में युद्ध का अंत कर सकते थे।</p>
+                    </div>
+                    <div class="story-card bg-amber-50 p-6 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow" data-story-id="headDonation">
+                        <h3 class="font-bold text-xl text-deep-blue">शीश का दान</h3>
+                        <p class="mt-1 text-sm text-gray-600">महाभारत युद्ध में श्री कृष्ण के सामने उनका महानतम त्याग।</p>
+                    </div>
+                    <div class="story-card bg-amber-50 p-6 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow" data-story-id="shyamName">
+                        <h3 class="font-bold text-xl text-deep-blue">श्याम नाम</h3>
+                        <p class="mt-1 text-sm text-gray-600">कैसे बर्बरीक को श्री कृष्ण से 'श्याम' नाम मिला।</p>
+                    </div>
+                    <div class="story-card bg-amber-50 p-6 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow" data-story-id="phalgundham">
+                        <h3 class="font-bold text-xl text-deep-blue">फाल्गुन धाम</h3>
+                        <p class="mt-1 text-sm text-gray-600">वार्षिक फाल्गुन मेले की कहानी और महत्व।</p>
+                    </div>
+                    <div class="story-card bg-amber-50 p-6 rounded-lg shadow-md cursor-pointer hover:shadow-xl transition-shadow" data-story-id="haarekasahara">
+                        <h3 class="font-bold text-xl text-deep-blue">हारे का सहारा</h3>
+                        <p class="mt-1 text-sm text-gray-600">कैसे बाबा श्याम हारे हुए भक्तों की मदद करते हैं।</p>
+                    </div>
+                </div>
+
+                <div id="story-detail" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 p-4 flex items-center justify-center">
+                    <div class="bg-white p-8 rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+                        <button id="close-story" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 text-3xl">
+                            &times;
+                        </button>
+                        <h3 id="story-title" class="text-3xl font-bold text-deep-blue mb-4"></h3>
+                        <p id="story-content" class="text-lg leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="darshan" class="py-12 bg-white rounded-xl shadow-lg mb-12">
+            <div class="max-w-5xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-deep-blue mb-2">दिव्य दर्शन और अनुष्ठान</h2>
+                <p class="text-center text-lg mb-8">इस खंड में, आप मंदिर के दैनिक कार्यक्रम, आरतियों का समय और बाबा श्याम की पूजा से जुड़ी सभी महत्वपूर्ण जानकारी प्राप्त कर सकते हैं, ताकि आपका दर्शन अनुभव दिव्य और सुगम हो।</p>
+                
+                <div class="bg-amber-50 p-6 rounded-lg mb-8">
+                    <h3 class="text-2xl font-bold text-deep-blue text-center mb-4">आरती का समय</h3>
+                    <div class="flex justify-center space-x-4 mb-4">
+                        <button id="summer-btn" class="px-6 py-2 rounded-full font-semibold bg-saffron text-white">गर्मी</button>
+                        <button id="winter-btn" class="px-6 py-2 rounded-full font-semibold bg-gray-200 text-earthy-brown">सर्दी</button>
+                    </div>
+                    <div id="aarti-schedule" class="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <div class="border-b border-gray-200">
+                        <nav class="-mb-px flex justify-center space-x-8" aria-label="Tabs">
+                            <button class="puja-tab tab-active whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-target="puja-vidhi">पूजा विधि</button>
+                            <button class="puja-tab tab-inactive whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-target="priya-bhog">प्रिय भोग</button>
+                            <button class="puja-tab tab-inactive whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm" data-target="mantra">मंत्र</button>
+                        </nav>
+                    </div>
+                    <div class="py-6">
+                        <div id="puja-vidhi" class="puja-content">
+                            <h4 class="text-xl font-bold text-deep-blue mb-3">सामान्य पूजा विधि</h4>
+                            <p>बाबा श्याम की पूजा सरल और भावपूर्ण होती है। पूजा में शुद्ध घी का दीपक, इत्र, पुष्प (विशेषकर गुलाब), और नारियल का प्रयोग करें। बाबा को नीला वस्त्र अत्यंत प्रिय है। सबसे महत्वपूर्ण आपकी सच्ची श्रद्धा और भक्ति है। घर पर भी शुद्ध मन से की गई पूजा बाबा स्वीकार करते हैं।</p>
+                        </div>
+                        <div id="priya-bhog" class="puja-content hidden">
+                             <h4 class="text-xl font-bold text-deep-blue mb-3">बाबा श्याम को प्रिय भोग</h4>
+                             <ul class="list-disc list-inside space-y-2">
+                                <li><strong>खीर-चूरमा:</strong> यह बाबा का सबसे प्रिय और प्रसिद्ध भोग है।</li>
+                                <li><strong>गाय का कच्चा दूध:</strong> मान्यता है कि यह सबसे पहले स्वीकार किया गया प्रसाद है।</li>
+                                <li><strong>पंचमेवा:</strong> बादाम, काजू, छुआरा, मिश्री और किशमिश का मिश्रण।</li>
+                                <li><strong>खोए के पेड़े और लड्डू:</strong> दूध से बनी मिठाइयां बाबा को बहुत पसंद हैं।</li>
+                                <li><strong>गुलाब का फूल:</strong> बिना गुलाब के उनका श्रृंगार अधूरा माना जाता है।</li>
+                             </ul>
+                        </div>
+                        <div id="mantra" class="puja-content hidden">
+                            <h4 class="text-xl font-bold text-deep-blue mb-3">सरल और शक्तिशाली मंत्र</h4>
+                            <ul class="list-none space-y-2 text-center text-lg">
+                                <li class="font-semibold">ॐ श्री श्याम देवाय नमः</li>
+                                <li class="font-semibold">हारे का सहारा, बाबा श्याम हमारा</li>
+                                <li class="font-semibold">ॐ श्याम शरणम् ममः</li>
+                                <li class="font-semibold">ॐ मोर्वी नंदनाय विद् महे, श्याम देवाय धीमहि, तन्नो बर्बरीक प्रचोदयात्</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="yatra" class="py-12 bg-white rounded-xl shadow-lg mb-12">
+            <div class="max-w-5xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-deep-blue mb-2">अपनी यात्रा की योजना बनाएं</h2>
+                <p class="text-center text-lg mb-8">खाटू धाम तक पहुँचना अब पहले से कहीं अधिक सुविधाजनक है। यह खंड आपको यात्रा के सर्वोत्तम समय, परिवहन के साधनों और आवास की जानकारी प्रदान करता है।</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-deep-blue mb-4">कैसे पहुँचें?</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <span class="text-3xl mr-4">🚌</span>
+                                <div>
+                                    <h4 class="font-bold">सड़क मार्ग</h4>
+                                    <p>जयपुर (80 किमी) और दिल्ली (270 किमी) से सीधी बस और टैक्सी सेवाएं उपलब्ध हैं। निकटतम प्रमुख बस स्टॉप रींगस (17 किमी) है।</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-3xl mr-4">🚆</span>
+                                <div>
+                                    <h4 class="font-bold">रेल मार्ग</h4>
+                                    <p>निकटतम रेलवे स्टेशन रींगस (RGS) है, जो खाटू से लगभग 17 किमी दूर है। जयपुर से रींगस के लिए नियमित ट्रेनें चलती हैं।</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-3xl mr-4">✈️</span>
+                                <div>
+                                    <h4 class="font-bold">हवाई मार्ग</h4>
+                                    <p>निकटतम हवाई अड्डा जयपुर अंतर्राष्ट्रीय हवाई अड्डा (JAI) है, जो लगभग 95 किमी दूर है। हवाई अड्डे से टैक्सी या बस ले सकते हैं।</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-deep-blue mb-4">यात्रा का सर्वोत्तम समय</h3>
+                        <div class="chart-container">
+                            <canvas id="visit-time-chart"></canvas>
+                        </div>
+                        <p class="text-center mt-2">अक्टूबर से मार्च का समय सबसे सुखद होता है। फाल्गुन (फरवरी-मार्च) में वार्षिक मेला लगता है, जिसमें भारी भीड़ होती है।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="info" class="py-12 bg-white rounded-xl shadow-lg mb-12">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center text-deep-blue mb-2">महत्वपूर्ण जानकारी</h2>
+                 <p class="text-center text-lg mb-8">एक सहज और सम्मानजनक दर्शन अनुभव के लिए, कृपया मंदिर के नियमों और परंपराओं का पालन करें। यहाँ कुछ आवश्यक दिशानिर्देश दिए गए हैं।</p>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-green-100 p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold text-green-800 mb-4 text-center">क्या करें (Do's) ✔️</h3>
+                        <ul class="space-y-3">
+                            <li>✔️ शालीन और साधारण वस्त्र पहनें।</li>
+                            <li>✔️ मंदिर परिसर में शांति बनाए रखें।</li>
+                            <li>✔️ अपने सामान और बच्चों का ध्यान रखें।</li>
+                            <li>✔️ धर्मशाला या होटल पहले से बुक करें, खासकर मेले के समय।</li>
+                            <li>✔️ बाबा के प्रति सच्ची श्रद्धा और भक्ति रखें।</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-100 p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold text-red-800 mb-4 text-center">क्या न करें (Don'ts) ❌</h3>
+                        <ul class="space-y-3">
+                            <li>❌ मंदिर के अंदर फोटोग्राफी या वीडियोग्राफी न करें।</li>
+                            <li>❌ शॉर्ट्स या छोटे कपड़े पहनकर मंदिर में प्रवेश न करें।</li>
+                            <li>❌ धक्का-मुक्की या शोर-शराबा न करें।</li>
+                            <li>❌ किसी भी प्रकार के मादक पदार्थों का सेवन न करें।</li>
+                            <li>❌ वीआईपी दर्शन के लिए किसी पर दबाव न डालें।</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="mt-8 bg-amber-50 p-6 rounded-lg">
+                    <h3 class="text-2
